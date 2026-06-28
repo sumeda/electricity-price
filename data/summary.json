@@ -1,0 +1,8 @@
+{
+  "record_count": 174,
+  "company_count": 6,
+  "month_start": "2024-04",
+  "month_end": "2026-08",
+  "source": "Official utility disclosures, extracted by Codex workflow.",
+  "viewer": "https://sumeda.github.io/electricity-price/"
+}
