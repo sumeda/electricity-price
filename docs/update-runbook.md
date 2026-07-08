@@ -24,7 +24,7 @@ python3 scripts/extract_jepx_spot_monthly.py
 python3 scripts/build_viewer.py
 ```
 
-JEPXのCSVは年度単位です。2024年3月は2023年度CSVに含まれるため、スクリプトでは2023〜2026年度分を取得します。
+JEPXのCSVは年度単位です。2024年3月は2023年度CSVに含まれるため、スクリプトでは2023年分から実行年分までを取得し、公式CSV内の最新月まで出力します。
 
 月平均は、30分ごとのエリアプライスを対象月ごとに単純平均しています。
 
