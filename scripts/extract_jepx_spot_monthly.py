@@ -13,8 +13,8 @@ OUT_JSON = DATA_DIR / "jepx-spot-monthly.json"
 OUT_CSV = DATA_DIR / "jepx-spot-monthly.csv"
 
 START_MONTH = "2024-03"
-END_MONTH = "2026-06"
-YEARS = [2023, 2024, 2025, 2026]
+END_MONTH = None
+YEARS = list(range(2023, datetime.now().year + 1))
 
 AREAS = [
     ("九州", 14),
@@ -73,6 +73,7 @@ def main():
     totals = defaultdict(float)
     counts = defaultdict(int)
     row_counts = defaultdict(int)
+    available_months = set()
 
     for path in files:
         rows = csv.reader(path.read_text(encoding="utf-8-sig").splitlines())
@@ -85,7 +86,11 @@ def main():
             except ValueError:
                 continue
             month = date.strftime("%Y-%m")
-            if not (START_MONTH <= month <= END_MONTH):
+            if month >= START_MONTH:
+                available_months.add(month)
+            if END_MONTH and month > END_MONTH:
+                continue
+            if month < START_MONTH:
                 continue
             row_counts[month] += 1
             for area, index in AREAS:
@@ -96,7 +101,8 @@ def main():
                 totals[key] += value
                 counts[key] += 1
 
-    months = list(month_range(START_MONTH, END_MONTH))
+    end_month = END_MONTH or max(available_months)
+    months = list(month_range(START_MONTH, end_month))
     areas = [area for area, _ in AREAS]
     series = {}
 
