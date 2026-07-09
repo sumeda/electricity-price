@@ -12,14 +12,14 @@
 <header><h1>電力価格ビューア</h1><p>特別高圧向け燃料費等調整単価と、JEPXスポット市場のエリア別月平均価格を表示します。</p></header>
 <main>
 <section class="panel">
-<div class="head"><div><h2>燃料費等調整単価の推移</h2><div class="muted">九州・東北・東京・関西・中部・四国電力の特別高圧 1kWhあたり単価。</div></div><div class="controls"><span class="muted">表示期間</span><select id="fuelPeriod"><option value="3">直近3ヶ月</option><option value="6">直近6ヶ月</option><option value="12" selected>直近1年</option><option value="24">直近2年</option></select><button data-chart="fuel" data-action="all">すべて表示</button><button data-chart="fuel" data-action="none">すべて解除</button></div></div>
+<div class="head"><div><h2>燃料費等調整単価の推移</h2><div class="muted">九州・東北・東京・関西・中部・四国電力の特別高圧 1kWhあたり単価。</div></div><div class="controls"><span class="muted">表示期間</span><select id="fuelPeriod"><option value="3">直近3ヶ月</option><option value="6" selected>直近6ヶ月</option><option value="12">直近1年</option><option value="24">直近2年</option></select><button data-chart="fuel" data-action="all">すべて表示</button><button data-chart="fuel" data-action="none">すべて解除</button></div></div>
 <div id="fuelLegend" class="legend"></div>
 <div class="wrap"><canvas id="fuelChart"></canvas><div id="fuelTip" class="tip"></div></div>
 <div id="fuelFoot" class="foot"></div>
 </section>
 <section class="table"><table><thead><tr><th>会社</th><th>特別高圧 1kWhあたり</th><th>最新取得月</th></tr></thead><tbody id="rows"></tbody></table></section>
 <section class="panel">
-<div class="head"><div><h2>JEPXスポット市場 月平均価格</h2><div class="muted">30分ごとのエリアプライスを月別に単純平均。最新月は取得可能分の平均です。</div></div><div class="controls"><span class="muted">表示期間</span><select id="marketPeriod"><option value="3">直近3ヶ月</option><option value="6">直近6ヶ月</option><option value="12">直近1年</option><option value="24">直近2年</option><option value="all" selected>全期間</option></select><button data-chart="market" data-action="all">すべて表示</button><button data-chart="market" data-action="none">すべて解除</button></div></div>
+<div class="head"><div><h2>JEPXスポット市場 月平均価格</h2><div class="muted">30分ごとのエリアプライスを月別に単純平均。最新月は取得可能分の平均です。</div></div><div class="controls"><span class="muted">表示期間</span><select id="marketPeriod"><option value="3">直近3ヶ月</option><option value="6" selected>直近6ヶ月</option><option value="12">直近1年</option><option value="24">直近2年</option><option value="all">全期間</option></select><button data-chart="market" data-action="all">すべて表示</button><button data-chart="market" data-action="none">すべて解除</button></div></div>
 <div id="marketLegend" class="legend"></div>
 <div class="wrap"><canvas id="marketChart"></canvas><div id="marketTip" class="tip"></div></div>
 <div id="marketFoot" class="foot"></div>
