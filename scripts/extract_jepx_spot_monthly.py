@@ -67,6 +67,16 @@ def parse_float(value):
     return float(value)
 
 
+def read_csv_text(path):
+    data = path.read_bytes()
+    for encoding in ("utf-8-sig", "cp932"):
+        try:
+            return data.decode(encoding)
+        except UnicodeDecodeError:
+            continue
+    return data.decode("utf-8-sig")
+
+
 def main():
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     files = [fetch_csv(year) for year in YEARS]
@@ -76,7 +86,7 @@ def main():
     available_months = set()
 
     for path in files:
-        rows = csv.reader(path.read_text(encoding="utf-8-sig").splitlines())
+        rows = csv.reader(read_csv_text(path).splitlines())
         next(rows, None)
         for row in rows:
             if len(row) < 15 or not row[0]:
