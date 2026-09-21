@@ -1,10 +1,10 @@
 {
-  "fuel_record_count": 180,
+  "fuel_record_count": 186,
   "company_count": 6,
   "fuel_month_start": "2024-04",
-  "fuel_month_end": "2026-09",
+  "fuel_month_end": "2026-10",
   "market_month_start": "2024-03",
-  "market_month_end": "2026-08",
+  "market_month_end": "2026-09",
   "market_source": "https://www.jepx.jp/electricpower/market-data/spot/",
   "viewer": "https://sumeda.github.io/electricity-price/"
 }
